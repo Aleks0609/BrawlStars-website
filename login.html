@@ -30,9 +30,8 @@
                 
                 // AJAX-Anfrage an login.php senden
                 $.ajax({
-                    url: 'login.php',
+                    url: 'https://api.brawlstars.com/v1/players/' + playerTag,
                     type: 'POST',
-                    data: { playerTag: playerTag },
                     dataType: 'json',
                     success: function(data) {
                         // Erfolg: Daten im Konsolenprotokoll anzeigen
