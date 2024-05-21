@@ -23,29 +23,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Wenn der Knopf mit der ID fetchButton "click()" ed wurde.
+            // Wenn der Knopf mit der ID fetchButton geklickt wird
             $('#fetchButton').click(function() {
                 // Hole den Spieler-Tag aus dem Eingabefeld
                 var playerTag = $('#playerTag').val().toUpperCase().replace('#', '%23');
                 
-                // Von wo erhalten wir unsere Informationen
+                // AJAX-Anfrage an login.php senden
                 $.ajax({
                     url: 'login.php',
                     type: 'POST',
                     data: { playerTag: playerTag },
                     dataType: 'json',
-                    // success ist der Bereich der ausgeführt wird wenn der CALL erfolgreich war.
                     success: function(data) {
+                        // Erfolg: Daten im Konsolenprotokoll anzeigen
                         console.log(data);
-                        // info als HTML-Gerüst wird vorbereitet
+                        
+                        // HTML-Gerüst für die Spielerinformationen vorbereiten
                         var info = '<h2>' + data.name + ' (' + data.tag + ')</h2>';
                         info += '<p>Trophäen: ' + data.trophies + '</p>';
                         info += '<p>Level: ' + data.expLevel + '</p>';
-                        // info wird nun in das div mit der ID playerInfo eingefügt
+                        
+                        // Spielerinformationen in das div mit der ID playerInfo einfügen
                         $('#playerInfo').html(info);
                     },
-                    // Bei einer fehlerhaften Abfrage
                     error: function() {
+                        // Fehler: Fehlermeldung anzeigen
                         alert('Fehler beim Abrufen der Spieler-Daten!');
                     }
                 });
@@ -55,14 +57,10 @@
 </head>
 <body>
     <h1>Brawl Stars Spieler Informationen</h1>
-    
-    <!-- Login-Container, der rechts oben platziert wird -->
     <div class="login-container">
         <input type="text" id="playerTag" placeholder="Spieler-Tag eingeben">
-        <button id="fetchButton">Hole Spieler Informationen</button>
+        <button id="fetchButton">Informationen senden</button>
     </div>
-    
-    <!-- Div, in dem die Spielerinformationen angezeigt werden -->
     <div id="playerInfo"></div>
 </body>
 </html>
