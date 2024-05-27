@@ -22,10 +22,10 @@ if ($result->num_rows > 0) {
     // Passwort überprüfen
     if (password_verify($password, $user['password'])) {
         echo "Login erfolgreich!";
-        // Hier könnten Sie eine Session starten und den Benutzer weiterleiten
-        // session_start();
-        // $_SESSION['username'] = $username;
-        // header("Location: dashboard.php");
+        // Hier kann eine Session starten und den Benutzer weiterleiten
+         session_start();
+         $_SESSION['username'] = $username;
+         header("Location: dashboard.php");
     } else {
         echo "Falsches Passwort.";
     }
