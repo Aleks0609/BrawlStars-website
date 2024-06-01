@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Brawl Stars Spieler Informationen</title>
+    <style>
+        /* Stil für den Container des Login-Feldes */
+        .login-container {
+            position: absolute;
+            top: 10px; /* Abstand von oben */
+            right: 10px; /* Abstand von rechts */
+            background-color: #f8f8f8; /* Hintergrundfarbe */
+            padding: 10px; /* Innenabstand */
+            border-radius: 5px; /* Abgerundete Ecken */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+        }
+
+        /* Stil für das Hauptüberschrift */
+        h1 {
+            text-align: center; /* Zentriert die Hauptüberschrift */
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Wenn der Knopf mit der ID fetchButton geklickt wird
+            $('#fetchButton').click(function() {
+                // Hole den Spieler-Tag aus dem Eingabefeld
+                var playerTag = $('#playerTag').val().toUpperCase().replace('#', '%23');
+                
+                // AJAX-Anfrage an login.php senden
+                $.ajax({
+                    url: 'https://api.brawlstars.com/v1/players/' + playerTag,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data) {
+                        // Erfolg: Daten im Konsolenprotokoll anzeigen
+                        console.log(data);
+                        
+                        // HTML-Gerüst für die Spielerinformationen vorbereiten
+                        var info = '<h2>' + data.name + ' (' + data.tag + ')</h2>';
+                        info += '<p>Trophäen: ' + data.trophies + '</p>';
+                        info += '<p>Level: ' + data.expLevel + '</p>';
+                        
+                        // Spielerinformationen in das div mit der ID playerInfo einfügen
+                        $('#playerInfo').html(info);
+                    },
+                    error: function() {
+                        // Fehler: Fehlermeldung anzeigen
+                        alert('Fehler beim Abrufen der Spieler-Daten!');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Brawl Stars Spieler Informationen</h1>
+    <div class="login-container">
+        <input type="text" id="playerTag" placeholder="Spieler-Tag eingeben">
+        <button id="fetchButton">Informationen senden</button>
+    </div>
+    <div id="playerInfo"></div>
+</body>
+</html>
