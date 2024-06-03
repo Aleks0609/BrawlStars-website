@@ -44,6 +44,7 @@
         .active {
             background-color: #fe9502;
         }
+
         </style>
     </head>
     <body>
@@ -57,7 +58,9 @@
         
         <div style="padding: 20px; margin-top: 30px;height: 3000px;">
             <h1 style="color: white;">Brawl Stars</h1>
-        </div>
-        
+            <?php
+            include_once("CSS\backgroundStyle.html")
+            ?>
+        </div> 
     </body>
 </html>
