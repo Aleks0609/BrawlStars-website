@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>backgroundStyle</title>
     <img src="https://th.bing.com/th/id/R.46fc9528c26f0c40aeea862209fb9ca0?rik=cJSaPQBpdt644Q&pid=ImgRaw&r=0" 
-    width="100" height="100" id="myImg">
+    width="100" height="100" id="myImg" title="Logo">
     <style>
         img {
             opacity: 0.1;
@@ -14,19 +14,25 @@
 </head>
 <body onLoad="myMove();">
     <script>
+        function clearInterval() {
+
+        }
+
         var id = null; //brauch een fir zesen wat fier eng aart interval grad laafen soll 
         function myMove() {
-          var elem = document.getElementById("myImg");   
+          var elem = document.getElementById("myImg");
+          console.log(elem);  
           var pos = 0;
           clearInterval(id);
           id = setInterval(frame, 10); //2. parameter as fir zeit zweschen dem interval(timer)
           function frame() {
             if (pos == 482) {
-              clearInterval(id);
+                clearInterval(id);
             } else {
-              pos++; 
-              elem.style.top = 5 * pos + 'px'; 
-              elem.style.left = pos + 'px'; 
+                console.log("test");
+                pos++; 
+                elem.style.top += 5 * pos; 
+                elem.style.left += pos; 
             }
           }
         }
