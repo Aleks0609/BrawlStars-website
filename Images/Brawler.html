@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "https://api.brawlify.com/v1/brawlers/16000038",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data.list);
+
+
+                    data.list.forEach(element => {
+                        htmlContent += "<p>"+element.list.imageUrl+"</p>";
+                    });
+                
+                    $("#BrawlContent").html(htmlContent);
+                },
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="BrawlContent">
+
+    </div>
+</body>
+</html>
