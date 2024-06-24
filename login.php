@@ -9,28 +9,22 @@ if ($conn->connect_error) {
 
 // Benutzereingaben aus dem Formular holen
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Passwort hashen
 
-// Benutzer in der Datenbank suchen
-$sql = "SELECT * FROM users WHERE username='$username'";
+// Überprüfen, ob der Benutzername oder die E-Mail bereits existieren
+$sql = "SELECT * FROM users WHERE username='$username';
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Benutzerdaten abrufen
-    $user = $result->fetch_assoc();
-    
-    // Passwort überprüfen
-    if (password_verify($password, $user['password'])) {
-        echo "Login erfolgreich!";
-        // Hier kann eine Session starten und den Benutzer weiterleiten
-         session_start();
-         $_SESSION['username'] = $username;
-         header("Location: dashboard.php");
-    } else {
-        echo "Falsches Passwort.";
-    }
+    echo "Benutzername oder Email ist bereits vergeben.";
 } else {
-    echo "Benutzer nicht gefunden.";
+    // Benutzer in der Datenbank speichern
+    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    if ($conn->query($sql) === TRUE) {
+        echo "Registrierung erfolgreich!";
+    } else {
+        echo "Fehler: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 // Verbindung schließen
