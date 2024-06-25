@@ -1,4 +1,5 @@
 <?php
+    // Aleksandar
     // Verbindungsaufbau
     $hostname = '89.58.47.144';
     $username = 'BrawlstarsUser';

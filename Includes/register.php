@@ -1,5 +1,6 @@
 <!-- Ricardo -->
 <?php
+//
     // Verbindungsaufbau
     $username = 'BrawlstarsUser';
     $password = 'BrawlstarsPW';
