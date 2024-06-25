@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Zeichensatz und Viewport-Einstellungen -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>backgroundStyle</title>
+    
+    <!-- Eingebettetes CSS für die Bildgestaltung -->
     <style>
+        /* Styling für das Bild */
         .img {
-            opacity: 0.1;
-            position: absolute;
-            top: 120px;
-            left: 50px;
+            opacity: 0.1; /* Bild-Transparenz */
+            position: absolute; /* Absolute Positionierung */
+            top: 120px; /* Anfangsposition von oben */
+            left: 50px; /* Anfangsposition von links */
         }
     </style>
 </head>
 <body>
+    <!-- Bild, das bewegt werden soll -->
     <img src="https://th.bing.com/th/id/R.46fc9528c26f0c40aeea862209fb9ca0?rik=cJSaPQBpdt644Q&pid=ImgRaw&r=0" 
     width="100" height="100" id="myImg" class="img">
+    
+    <!-- JavaScript zum Bewegen des Bildes -->
     <script>
-        var id = null; //brauch een fir zesen wat fier eng aart interval grad laafen soll 
+        var id = null; // Variable, um das Intervall zu speichern
+
         function myMove() {
-            var elem = document.getElementById("myImg");  
-            var posTop = 120;
-            var posLeft = 50;
-            clearInterval(id);
-            id = setInterval(frame, 10); //2. parameter as fir zeit zweschen dem interval(timer)
-          
+            var elem = document.getElementById("myImg"); // Bild-Element
+            var posTop = 120; // Anfangsposition von oben
+            var posLeft = 50; // Anfangsposition von links
+            clearInterval(id); // Vorheriges Intervall löschen
+            id = setInterval(frame, 10); // Neues Intervall starten (alle 10 Millisekunden)
+
             function frame() {
+                // Wenn das Bild die untere Grenze erreicht hat, Intervall stoppen und Position zurücksetzen
                 if (posTop == 2900) {
                     clearInterval(id);
                     posTop = 120;
                     posLeft = 50;
-                    id = setInterval(frame, 10);
+                    id = setInterval(frame, 10); // Neues Intervall starten
                 } else {
-                    posTop++;
-                    posLeft++; 
-                    elem.style.top = posTop + "px"; 
-                    elem.style.left = 0.35 * posLeft + "px"; 
+                    posTop++; // Y-Position erhöhen
+                    posLeft++; // X-Position erhöhen
+                    elem.style.top = posTop + "px"; // Y-Position des Bildes setzen
+                    elem.style.left = 0.35 * posLeft + "px"; // X-Position des Bildes setzen
                 }
             }
-
         }
+
+        // Funktion myMove beim Laden der Seite aufrufen
         myMove();
     </script>
 </body>
