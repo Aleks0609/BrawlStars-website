@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+    
     <meta charset="UTF-8">
     <title>Brawl Stars Spieler Informationen</title>
     <style>
+        /* Aleksandar
         /* Stil für den Container des Login-Feldes */
         .login-container {
             position: absolute;
@@ -28,7 +31,7 @@
                 // Hole den Spieler-Tag aus dem Eingabefeld
                 var playerTag = $('#playerTag').val().toUpperCase().replace('#', '%23');
                 
-                // AJAX-Anfrage an login.php senden
+                
                 $.ajax({
                     url: 'https://api.brawlstars.com/v1/players/' + playerTag,
                     Authorization: 'Aleksandar',
