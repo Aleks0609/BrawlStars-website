@@ -25,8 +25,6 @@
         echo "Fehler beim ausführen deines Queries: " . mysqli_error($connection);
     }
 
-    echo mysqli_num_rows($result);
-
     // Datenverarbeitung
     if (mysqli_num_rows($result) > 0) {
         // Anzahl der erhaltenen Datensetze.
@@ -34,7 +32,7 @@
         // Daten aus jeder Reihe ausgeben (Pfankuchen vom Stapel nehmen)
         for ($i=0; $i < $numRows; $i++) { 
             $row = mysqli_fetch_assoc($result);
-            echo "id: " . $row["idUser"]. " - Text: " . $row["dtName"]. "";
+            echo "name: " . $row["dtUser"]. " - Text: " . $row["dtName"]. "";
         }
     } else {
         echo "0 Ergebnisse gefunden";
