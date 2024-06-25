@@ -2,81 +2,103 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrieren</title>
+    <!-- Meta-Informationen über die Seite -->
+    <meta charset="UTF-8"> <!-- Zeichensatz der Seite auf UTF-8 setzen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport für responsives Design -->
+    <title>Registrieren</title> <!-- Titel der Seite -->
+    
+    <!-- Interner CSS-Block zur Gestaltung der Seite -->
     <style>
+        /* Stile für das Body-Element */
         body {
-            background-color: #333;
-            font-family: Arial, sans-serif;
-            color: aliceblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            background-color: #333; /* Hintergrundfarbe dunkelgrau */
+            font-family: Arial, sans-serif; /* Schriftart Arial oder Standard-Serifenlose Schrift */
+            color: aliceblue; /* Schriftfarbe Hellblau (AliceBlue) */
+            display: flex; /* Flexbox-Layout für das Body-Element */
+            justify-content: center; /* Inhalt horizontal zentrieren */
+            align-items: center; /* Inhalt vertikal zentrieren */
+            height: 100vh; /* Höhe des Viewports */
+            margin: 0; /* Keine Außenabstände */
         }
 
+        /* Stile für das Container-Div */
         .container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #444;
+            text-align: center; /* Text zentrieren */
+            padding: 20px; /* Innenabstand */
+            border-radius: 8px; /* Abgerundete Ecken */
+            background-color: #444; /* Hintergrundfarbe dunkelgrau */
         }
 
+        /* Stile für das Header-Bild */
         .header-image {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 20px;
+            width: 100%; /* Breite 100% des Containers */
+            max-width: 300px; /* Maximale Breite 300px */
+            height: auto; /* Höhe automatisch an Breite anpassen */
+            margin-bottom: 20px; /* Abstand nach unten */
         }
 
+        /* Stile für die Text-Labels */
         .text {
-            display: block;
-            margin-bottom: 8px;
-            -webkit-text-fill-color: aliceblue;
+            display: block; /* Block-Element */
+            margin-bottom: 8px; /* Abstand nach unten */
+            -webkit-text-fill-color: aliceblue; /* Textfarbe Hellblau für WebKit-Browser */
         }
 
+        /* Stile für die Eingabefelder */
         .input-field {
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Abstand nach unten */
         }
 
+        /* Stile für den Button */
         .button {
-            background-color: #e7e7e7;
-            border: 1px solid black;
-            color: black;
-            padding: 10px 20px;
-            cursor: pointer;
+            background-color: #e7e7e7; /* Hintergrundfarbe Hellgrau */
+            border: 1px solid black; /* Schwarzer Rahmen */
+            color: black; /* Textfarbe Schwarz */
+            padding: 10px 20px; /* Innenabstand */
+            cursor: pointer; /* Mauszeiger wird zum Zeiger */
         }
 
+        /* Hover-Effekt für den Button */
         .button:hover {
-            background-color: #d7d7d7;
+            background-color: #d7d7d7; /* Hintergrundfarbe etwas dunkler bei Hover */
         }
 
+        /* Stile für das Formular, um es zu zentrieren */
         .center-form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            display: flex; /* Flexbox-Layout für das Formular */
+            flex-direction: column; /* Flexrichtung Spalte */
+            justify-content: center; /* Inhalt horizontal zentrieren */
+            align-items: center; /* Inhalt vertikal zentrieren */
         }
     </style>
 </head>
 <body>
+    <!-- Container für das Formular -->
     <div class="container">
+        <!-- Header-Bild -->
         <img src="https://th.bing.com/th/id/R.362a504722e494b5a2930a1f27018e0a?rik=Tb%2fKbNNT%2f61miw&pid=ImgRaw&r=0" alt="Header Bild" class="header-image">
+        
+        <!-- Formular für die Registrierung -->
         <form class="center-form" action="login.php" method="post">
+            <!-- Eingabefeld für den Benutzernamen -->
             <div class="input-field">
                 <label class="text" for="username">Benutzername:</label>
                 <input type="text" id="username" name="username" required>
             </div>
+            
+            <!-- Eingabefeld für die E-Mail -->
             <div class="input-field">
                 <label class="text" for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
+            
+            <!-- Eingabefeld für das Passwort -->
             <div class="input-field">
                 <label class="text" for="password">Passwort:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            
+            <!-- Submit-Button -->
             <button class="button" type="submit">Einloggen</button>
         </form>
     </div>

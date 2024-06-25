@@ -1,7 +1,7 @@
 <!-- Ricardo -->
 <?php
-//
     // Verbindungsaufbau
+    $hostname = '89.58.47.144';
     $username = 'BrawlstarsUser';
     $password = 'BrawlstarsPW';
     $dbname = 'dbBrawlstars';
@@ -14,10 +14,10 @@
     }
 
     // Vorbereitung des INSERT-Statements
-    // Nimm an, dass $text die Nachricht ist, die du einfügen möchtest.
-    // In einem realen Szenario solltest du $text zuerst validieren und bereinigen.
-    $text = "Deine Nachricht hier einfügen";
-    $sql = "INSERT INTO deineTabelle (nachrichtSpalte) VALUES ('".$text."')";
+    $name = "username";
+    $pw = "password";
+    $email = "email";
+    $sql = "INSERT INTO tblUser (dtName, dtPassword, dtEmail) VALUES ('".$name.", ".$pw.", ".$email."')";
 
     // Ausführung des INSERT-Statements
     if (mysqli_query($connection, $sql)) {
