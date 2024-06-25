@@ -61,6 +61,11 @@
             <?php
             include_once("CSS\backgroundStyle.html")
             ?>
+            <img src="https://th.bing.com/th/id/R.01b9697f94623e46b68ae7c075376f42?rik=axHASJq4bWmWHQ&pid=ImgRaw&r=0"
+            width="100" height="100">
+            <img src="https://i.redd.it/7ep35xzoin421.png" width="100" height="100">
+            <img src="https://clipart.info/images/ccovers/1623765444crow-legendary-assassin-type-brawler-stars-png.png"
+            width="100" height="100">
         </div> 
     </body>
 </html>
