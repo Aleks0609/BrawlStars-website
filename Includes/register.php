@@ -1,6 +1,6 @@
+<!-- Ricardo -->
 <?php
     // Verbindungsaufbau
-    $hostname = '89.58.47.144';
     $username = 'BrawlstarsUser';
     $password = 'BrawlstarsPW';
     $dbname = 'dbBrawlstars';

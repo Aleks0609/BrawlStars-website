@@ -1,3 +1,4 @@
+<!-- Ricardo -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +12,7 @@
             background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #1a8cff), color-stop(50%, #ff3333));
             background: -webkit-linear-gradient(top left, #1a8cff 50%, #ff3333 50%);
             background: -o-linear-gradient(top left,#1a8cff 50%, #ff3333 50%);
-            background: linear-gradient(to bottom right, #1a8cff 50%, #ff3333 50%);
+            background: linear-gradient(to bottom right, #1a8cff 50%, #ff3333 50%); 
         }
         
         ul {
@@ -44,7 +45,6 @@
         .active {
             background-color: #fe9502;
         }
-
         </style>
     </head>
     <body>
