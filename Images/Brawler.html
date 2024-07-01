@@ -1,25 +1,32 @@
-<!--Aleksandar-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Einbinden der jQuery-Bibliothek von einem CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        // Wenn das Dokument vollständig geladen ist, wird diese Funktion ausgeführt
         $(document).ready(function () {
+            // Ajax-Aufruf an die Brawlify-API, um Daten zu einem bestimmten Brawler zu erhalten
             $.ajax({
-                url: "https://api.brawlify.com/v1/brawlers/16000038",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    console.log(data.list);
+                url: "https://api.brawlify.com/v1/brawlers/16000038", // URL der API
+                type: "GET", // HTTP-Methode ist GET
+                dataType: "json", // Datenformat ist JSON
+                success: function(data) { // Erfolgreicher Abruf der Daten
+                    console.log(data.list); // Ausgabe der empfangenen Daten in der Konsole
+                    
+                    // Initialisierung einer Variable, um HTML-Inhalt zu speichern
+                    let htmlContent = '';
 
-
+                    // Iteration über jedes Element in der empfangenen Datenliste
                     data.list.forEach(element => {
-                        htmlContent += "<p>"+element.list.imageUrl+"</p>";
+                        // Hinzufügen eines neuen Absatzes mit dem Bild-URL des Elements zu htmlContent
+                        htmlContent += "<p>" + element.list.imageUrl + "</p>";
                     });
                 
+                    // Einfügen des erstellten HTML-Inhalts in das div mit der ID "BrawlContent"
                     $("#BrawlContent").html(htmlContent);
                 },
             });
@@ -27,8 +34,8 @@
     </script>
 </head>
 <body>
-    <div
-     id="BrawlContent">
+    <!-- Div-Element, in das die API-Daten eingefügt werden -->
+    <div id="BrawlContent">
     </div>
 </body>
 </html>
